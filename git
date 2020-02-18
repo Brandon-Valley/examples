@@ -20,4 +20,5 @@ after adding submodules, run so submodules update correctly:
 git config -f .gitmodules submodule."test_submodule".branch master
     
     
+get all submodules:  git config --file .gitmodules --get-regexp path | awk '{ print $2 }'    
     
