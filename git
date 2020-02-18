@@ -1,0 +1,23 @@
+to pull and update all submodules:  https://stackoverflow.com/questions/18770545/why-is-my-git-submodule-head-detached-from-master
+
+git pull --recurse-submodules 
+
+  in all submodules:
+  git checkout master
+  git pull
+  
+  
+  
+  
+  
+  fully remove all local changes:  
+    git reset --hard --recurse-submodules
+    
+    
+    
+after adding submodules, run so submodules update correctly:
+ git config -f .gitmodules submodule."test_submodule".update rebase
+git config -f .gitmodules submodule."test_submodule".branch master
+    
+    
+    
