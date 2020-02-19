@@ -5,20 +5,20 @@ git pull --recurse-submodules
   in all submodules:
   git checkout master
   git pull
+ 
   
-  
-  
-  
-  
-  fully remove all local changes:  
+fully remove all local changes:  
     git reset --hard --recurse-submodules
-    
     
     
 after adding submodules, run so submodules update correctly:
  git config -f .gitmodules submodule."test_submodule".update rebase
-git config -f .gitmodules submodule."test_submodule".branch master
-    
-    
+ git config -f .gitmodules submodule."test_submodule".branch master
+   
+   
 get all submodules:  git config --file .gitmodules --get-regexp path | awk '{ print $2 }'    
     
+
+run after git flow --init to track develop branch so you dont end up pulling a repo without access to develop:
+  git branch -d origin/develop
+  git branch develop --set-upstream-to=remotes/origin/develop
