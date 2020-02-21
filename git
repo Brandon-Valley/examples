@@ -20,5 +20,5 @@ get all submodules:  git config --file .gitmodules --get-regexp path | awk '{ pr
     
 
 run after git flow --init to track develop branch so you dont end up pulling a repo without access to develop:
-  git branch -d origin/develop
+  git push origin develop
   git branch develop --set-upstream-to=remotes/origin/develop
