@@ -1,8 +1,3 @@
-
-
-
-REM =============================================================================
-
 In addition, substitution of FOR variable references has been enhanced.
 You can now use the following optional syntax:
 
