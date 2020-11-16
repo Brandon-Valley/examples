@@ -44,14 +44,29 @@ REM     %1 - in  - %"python command"%       - Ex: main.py
 REM ================================================================================================
 :run_cmd_in_python_or_python3
     setlocal
+        REM check python
         set python_exists=
         call :is_exe_in_path_env_var "python" python_exists
 
         if %python_exists%=="true" (
             python %1
-        ) else (
-            echo noooooooooooooooooooooooooooooooooooooooooooo
+            goto :eof
         )
+
+        REM check python3
+        set python3_exists=
+        call :is_exe_in_path_env_var "python3" python3_exists
+
+        if %python3_exists%=="true" (
+            python3 %1
+            goto :eof
+        )
+        
+        REM error msg if neither found
+        echo. ERROR: 
+        echo     python and python3 are both unrecognized commands.
+        echo     Make sure the path to the parent directory of your python.exe or python3.exe
+        echo         This value may resemble:  C:\Users\mt204e\AppData\Local\Programs\Python\Python37-32
     endlocal
 goto :eof
 
@@ -59,18 +74,5 @@ REM ############################################################################
 REM  Main
 REM ##########################################################################################################
 :main
-
-REM REM check python
-REM set exe_to_check=python
-REM set exe_exists=
-REM call :is_exe_in_path_env_var %exe_to_check% exe_exists
-REM echo "%exe_to_check%" exists in Path env var: %exe_exists%
-
-REM REM check python3
-REM set exe_to_check2=python3
-REM set exe_exists2=
-REM call :is_exe_in_path_env_var %exe_to_check2% exe_exists2
-REM echo "%exe_to_check2%" exists in Path env var: %exe_exists2%
-
 
 call :run_cmd_in_python_or_python3 "--version"
