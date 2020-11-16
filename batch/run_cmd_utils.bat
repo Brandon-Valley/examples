@@ -8,14 +8,14 @@ goto :main
 REM ================================================================================================
 REM Variables:
 REM     %1 - in  - "cmd_to_run"
-REM     %2 - out - cmd_output
+REM     %2 - out - %cmd_output%
 REM ================================================================================================
 :run_cmd_and_get_output
 
-    for /F "tokens=* USEBACKQ" %%F in (`%2`) do (
+    for /F "tokens=* USEBACKQ" %%F in (`%1`) do (
         set cmd_output=%%F
     )
-    set %1=%cmd_output%
+    set %2=%cmd_output%
 
 goto :eof
 
@@ -27,6 +27,6 @@ REM ############################################################################
 set cmd_to_run="where python"
 set cmd_out=
 
-call :run_cmd_and_get_output cmd_out %cmd_to_run%
+call :run_cmd_and_get_output %cmd_to_run% cmd_out 
 echo Output of cmd:  %cmd_out%
 goto :eof
