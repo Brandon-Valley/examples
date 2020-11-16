@@ -24,8 +24,8 @@ REM  Main
 REM ##########################################################################################################
 :main
 
-set cmd_to_run="where python"
+set cmd_to_run="where python3"
 set cmd_out=
 
 call :run_cmd_and_get_output %cmd_to_run% cmd_out 
-echo Output of cmd:  %cmd_out%
+echo Output of cmd:  "%cmd_out%"
