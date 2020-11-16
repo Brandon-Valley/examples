@@ -29,4 +29,3 @@ set cmd_out=
 
 call :run_cmd_and_get_output %cmd_to_run% cmd_out 
 echo Output of cmd:  %cmd_out%
-goto :eof
