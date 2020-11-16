@@ -26,18 +26,16 @@ REM     %2 - out - is_exe_in_path              - type: bool("true"/"false")
 REM ================================================================================================
 :is_exe_in_path_env_var
     setlocal
-    set cmd_to_run="where %1"
-    set cmd_out=
+        set cmd_to_run="where %1"
+        set cmd_out=
 
-    call :run_cmd_and_get_output %cmd_to_run% cmd_out     
+        call :run_cmd_and_get_output %cmd_to_run% cmd_out     
 
-    if "%cmd_out%"=="" (
-        endlocal & set %2="false"
-    ) else (
-        endlocal & set %2="true"
-    )
-REM endlocal
-
+        if "%cmd_out%"=="" (
+            endlocal & set %2="false"
+        ) else (
+            endlocal & set %2="true"
+        )
 goto :eof
 
 REM ##########################################################################################################
