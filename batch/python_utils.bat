@@ -21,7 +21,7 @@ goto :eof
 
 REM ================================================================================================
 REM Variables:
-REM     %1 - in  - %exe_name%       - Ex: python
+REM     %1 - in  - exe_name       - Ex: python
 REM     %2 - out - is_exe_in_path              - type: bool("true"/"false")
 REM ================================================================================================
 :is_exe_in_path_env_var
@@ -36,8 +36,23 @@ REM ============================================================================
     ) else (
         endlocal & set %2="true"
     )
-REM endlocal
+goto :eof
 
+REM ================================================================================================
+REM Variables:
+REM     %1 - in  - %"python command"%       - Ex: main.py
+REM ================================================================================================
+:run_cmd_in_python_or_python3
+    setlocal
+        set python_exists=
+        call :is_exe_in_path_env_var "python" python_exists
+
+        if %python_exists%=="true" (
+            python %1
+        ) else (
+            echo noooooooooooooooooooooooooooooooooooooooooooo
+        )
+    endlocal
 goto :eof
 
 REM ##########################################################################################################
@@ -45,14 +60,17 @@ REM  Main
 REM ##########################################################################################################
 :main
 
-REM check python
-set exe_to_check=python
-set exe_exists=
-call :is_exe_in_path_env_var %exe_to_check% exe_exists
-echo "%exe_to_check%" exists in Path env var: %exe_exists%
+REM REM check python
+REM set exe_to_check=python
+REM set exe_exists=
+REM call :is_exe_in_path_env_var %exe_to_check% exe_exists
+REM echo "%exe_to_check%" exists in Path env var: %exe_exists%
 
-REM check python3
-set exe_to_check2=python3
-set exe_exists2=
-call :is_exe_in_path_env_var %exe_to_check2% exe_exists2
-echo "%exe_to_check2%" exists in Path env var: %exe_exists2%
+REM REM check python3
+REM set exe_to_check2=python3
+REM set exe_exists2=
+REM call :is_exe_in_path_env_var %exe_to_check2% exe_exists2
+REM echo "%exe_to_check2%" exists in Path env var: %exe_exists2%
+
+
+call :run_cmd_in_python_or_python3 "--version"
