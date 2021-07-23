@@ -49,7 +49,7 @@ REM ============================================================================
         call :is_exe_in_path_env_var "python" python_exists
 
         if %python_exists%=="true" (
-            python %1
+            python %~1
             goto :eof
         )
 
@@ -58,7 +58,7 @@ REM ============================================================================
         call :is_exe_in_path_env_var "python3" python3_exists
 
         if %python3_exists%=="true" (
-            python3 %1
+            python3 %~1
             goto :eof
         )
         
@@ -75,4 +75,4 @@ REM  Main
 REM ##########################################################################################################
 :main
 
-call :run_cmd_in_python_or_python3 "--version"
+call :run_cmd_in_python_or_python3 "test.py -a this_arg_was_passed_by_python_utils.bat__SUCCESS"
