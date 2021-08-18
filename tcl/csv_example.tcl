@@ -15,9 +15,9 @@ package require csv
 #
 #     package require csv
 #     set row_ll {}
-#     lappend row_ll {Name Addr}
-#     lappend row_ll {bobby 0x123 "hi there, how are you?"}
-#     lappend row_ll {joe 0x456}
+#     lappend row_ll [list Name Addr]
+#     lappend row_ll [list bobby 0x123 "hi there, how are you?"]
+#     lappend row_ll [list joe 0x456]
 #     write_csv $row_ll C:/tools/tmp/test_csv.csv
 #
 #   Running the above example code will create a .csv file that looks like:
@@ -25,8 +25,6 @@ package require csv
 #     Name  | Addr  |
 #     bobby | 0x123 | "hi there, how are you?"
 #     joe   | 0x456 |
-
-
 #--------------------------------------------------------------------------------------------------#
 proc write_csv {row_ll csv_path} {
     # Write the data to a file
@@ -35,9 +33,10 @@ proc write_csv {row_ll csv_path} {
     close $f
 }
 
+set name_var bob
 set row_ll {}
-lappend row_ll {Name Addr}
-lappend row_ll {bobby 0x123 "hi there, how are you?"}
-lappend row_ll {joe 0x456}
+lappend row_ll [list Name Addr]
+lappend row_ll [list $name_var 0x123 "hi there, how are you?"]
+lappend row_ll [list joe 0x456]
 write_csv $row_ll C:/tools/tmp/test_csv.csv
 
