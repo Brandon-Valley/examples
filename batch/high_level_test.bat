@@ -11,7 +11,7 @@ REM ############################################################################
 :run_and_keep_window_open_with_press_key_to_close_window
 
     echo "hi there"
-    @REM sfgsdgfdfg
+    sfgsdgfdfg
 
 goto :eof
 
