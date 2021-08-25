@@ -1,4 +1,4 @@
-
+set SCRIPT_PARENT_DIR_PATH [ file dirname [ file normalize [ info script ] ] ] ; # parent dir of this script
 
 proc delete_if_exists {fs_obj_path} {
     if {[file exists $fs_obj_path]} {
