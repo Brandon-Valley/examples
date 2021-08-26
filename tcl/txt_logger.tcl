@@ -22,6 +22,24 @@ proc read_file {file_path} {
 }
 
 #--------------------------------------------------------------------------------------------------#
+# Writes a list of lines to a file
+#
+#   Params:
+#
+#     file_path - Unix path to file to be read
+#       - Do not surround path with ""
+#--------------------------------------------------------------------------------------------------#
+proc write_file {file_path line_l} {
+    set fp [open $file_path w] ; # overwrite
+
+    foreach line $line_l {
+        puts $fp $line
+    }
+
+    close $fp
+}
+
+#--------------------------------------------------------------------------------------------------#
 # Prints lists nicely for testing
 #--------------------------------------------------------------------------------------------------#
 proc puts_list {in_list} {
