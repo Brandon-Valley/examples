@@ -3,7 +3,7 @@
 #
 #   Params:
 #
-#     file_path - Unix path to file to be read
+#     file_path - Path to file to be read
 #       - Do not surround path with ""
 #
 #   Example:
