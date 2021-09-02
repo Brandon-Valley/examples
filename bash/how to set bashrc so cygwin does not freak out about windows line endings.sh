@@ -1,0 +1,1 @@
+echo -e 'export SHELLOPTS\nset -o igncr' >>~/.bashrc 
