@@ -7,7 +7,7 @@
 
 proc is_dir_path_git_repo {dir_path} {
     if {[catch {
-        exec git rev-parse --is-inside-work-tree -C $dir_path
+        exec git -C $dir_path rev-parse --is-inside-work-tree
     } result]} {
         # Handle the error, $result is unused b/c it would only give the msg
         # puts "    ERROR CAUGHT,  Probably meaning that dir_path is not a git repo, returning false...  \n\ndir_path:  $dir_path\n\n    $::errorInfo\n"
