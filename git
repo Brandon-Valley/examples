@@ -39,3 +39,18 @@ to recover from bad git reset --hard:
 
     # said the commit to be recovered back is on 9300f9d (with commit message fix-bug)
     $ git reset HEAD@{7}
+
+
+
+To delete submodule example:
+---------------------------
+
+https://gist.github.com/myusuf3/7f645819ded92bda6677
+git rm --cached usms/exception_utils
+git rm --cached usms/file_system_utils
+
+rm -rf .git/modules/usms/exception_utils
+rm -rf .git/modules/usms/file_system_utils
+
+rm -rf usms/exception_utils
+rm -rf usms/file_system_utils
