@@ -4,7 +4,7 @@
 #  Import variables
 ########################################################################################################################
 
-SECRET_VAR_FILE_PATH="C:/p/open_emr_setup/secrets/secret_vars.txt"
+SECRET_VAR_FILE_PATH="C:/p/my_project/secrets/secret_vars.txt"
 echo Importing variables from $SECRET_VAR_FILE_PATH ...
 
 # Check if the .env file exists
